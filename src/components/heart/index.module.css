@@ -7,6 +7,11 @@
   justify-content: center;
   width: 3rem;
   height: 3rem;
+  --color: #F24E1E;
+}
+
+.heart_clicked {
+  --color: #FF3A00;
 }
 
 .heart__fill,
@@ -18,12 +23,12 @@
 }
 
 .heart__fill {
-  fill: #F24E1E;
+  fill: var(--color);
 }
 
 .heart__stroke {
-  stroke: #F24E1E;
-  fill: none;
+  stroke: var(--color);
+  fill: var(--color);
 }
 
 .heart:hover > .heart__fill,
