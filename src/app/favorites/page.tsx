@@ -1,15 +1,5 @@
-'use client';
+import FavoriteCats from '@/components/favorites-cats';
 
-import Cats from '@/components/cats';
-import Container from '@/components/container';
-import useCatsContext from '@/hooks/use-cats-context';
-
-export default function FavoriteCatsPage() {
-  const { favoriteCats } = useCatsContext();
-
-  return (
-    <Container>
-      <Cats cats={favoriteCats} />
-    </Container>
-  );
+export default async function FavoriteCatsPage() {
+  return <FavoriteCats />;
 }
