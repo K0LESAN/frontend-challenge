@@ -1,12 +1,22 @@
 'use client';
 
 import type { FavoriteCatsContext } from '@/shared/types';
-import { createContext, PropsWithChildren, useState } from 'react';
+import { createContext, PropsWithChildren, useEffect, useState } from 'react';
 
 export const CatsContext = createContext<FavoriteCatsContext | null>(null);
 
 export function CatsContextProvider({ children }: PropsWithChildren) {
   const [favoriteCats, setFavoriteCats] = useState<string[]>([]);
+
+  useEffect(() => {
+    const cats: string[] = JSON.parse(localStorage.getItem('cats') || '[]');
+
+    setFavoriteCats(cats);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cats', JSON.stringify(favoriteCats));
+  }, [favoriteCats]);
 
   return (
     <CatsContext.Provider
