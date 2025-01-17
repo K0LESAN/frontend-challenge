@@ -3,4 +3,9 @@ enum Routes {
   favorites = '/favorites'
 }
 
-export { Routes };
+enum Api {
+  baseURL = 'https://cataas.com/api',
+  cats = '/cats'
+}
+
+export { Routes, Api };
