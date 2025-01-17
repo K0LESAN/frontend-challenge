@@ -4,12 +4,19 @@
   align-items: center;
   justify-content: center;
   aspect-ratio: 1 / 1;
-  padding: 1rem;
-  transition-property: box-shadow;
-  transition-duration: 250ms;
 }
 
-.block:hover {
+.block::before {
+  display: block;
+  position: absolute;
+  width: 114%;
+  aspect-ratio: 1 / 1;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  content: "";
+}
+
+.block:hover::before {
   box-shadow: 0px 6px 5px 0px #0000003D;
 }
 
