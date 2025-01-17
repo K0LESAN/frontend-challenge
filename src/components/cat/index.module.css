@@ -17,7 +17,7 @@
 }
 
 .block:hover::before {
-  box-shadow: 0px 0.375rem 0.3125rem 0px #0000003D;
+  box-shadow: 0 0.375rem 0.3125rem 0 #0000003D;
 }
 
 .cat {
