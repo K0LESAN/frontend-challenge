@@ -16,7 +16,7 @@
   content: "";
 }
 
-.block:hover::before {
+.block:active::before {
   box-shadow: 0 0.375rem 0.3125rem 0 #0000003D;
 }
 
@@ -30,5 +30,11 @@
 @media screen and (max-width: 70rem) {
   .block::before {
     width: 108%;
+  }
+}
+
+@media screen and ((hover: hover) or (pointer: fine)) {
+  .block:hover::before {
+    box-shadow: 0 0.375rem 0.3125rem 0 #0000003D;
   }
 }

@@ -17,12 +17,12 @@
 .heart__fill,
 .heart__stroke {
   position: absolute;
-  opacity: 0;
   transition-property: opacity;
   transition-duration: 250ms;
 }
 
 .heart__fill {
+  opacity: 0;
   fill: var(--color);
 }
 
@@ -31,7 +31,18 @@
   fill: var(--color);
 }
 
-.heart:hover > .heart__fill,
-*:hover > .heart > .heart__stroke {
+.heart:active > .heart__fill {
   opacity: 1;
+}
+
+@media screen and ((hover: hover) or (pointer: fine)) {
+  .heart:hover > .heart__fill,
+  *:hover > .heart > .heart__stroke {
+    opacity: 1;
+  }
+  
+  .heart__fill,
+  .heart__stroke {
+    opacity: 0;
+  }
 }
