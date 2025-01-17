@@ -3,6 +3,11 @@ interface Result<T> {
   error: null | unknown;
 }
 
+interface FavoriteCatsContext {
+  favoriteCats: string[];
+  toggleFavorites(id: string): void;
+}
+
 interface CatInfo {
   _id: string;
   mimetype: string;
@@ -10,4 +15,4 @@ interface CatInfo {
   tags: string[];
 }
 
-export type { Result, CatInfo };
+export type { Result, CatInfo, FavoriteCatsContext };

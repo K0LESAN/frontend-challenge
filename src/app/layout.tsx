@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import Header from '@/components/header';
+import { CatsContextProvider } from '@/providers/cats-context';
 import './globals.css';
 
 const roboto = Roboto({
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang='ru'>
       <body className={roboto.variable}>
         <Header />
-        {children}
+        <CatsContextProvider>{children}</CatsContextProvider>
       </body>
     </html>
   );
