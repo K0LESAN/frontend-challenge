@@ -15,9 +15,12 @@
   letter-spacing: 0.25px;
   color: rgba(255, 255, 255, 0.7);
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .link_active {
   color: #FFFFFF;
   background-color: #1E88E5;
+  cursor: default;
+  pointer-events: none;
 }
