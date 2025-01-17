@@ -11,7 +11,7 @@ export default function Cats({ cats }: { cats: string[] }) {
           return <Cat key={id} id={id} />;
         })
       ) : (
-        <div>Котиков не найдено.</div>
+        <div className={styles.message}>Котиков не найдено.</div>
       )}
     </div>
   );

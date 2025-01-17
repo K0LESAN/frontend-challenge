@@ -7,6 +7,12 @@
   padding-top: 3rem;
 }
 
+.message {
+  font-size: 0.875rem;
+  line-height: 150%;
+  letter-spacing: 0.25px;
+}
+
 @media screen and (max-width: 81.25rem) {
   .wrapper {
     --count-cats: 4;
