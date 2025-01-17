@@ -1,12 +1,12 @@
 .heart {
   position: absolute;
   right: 0;
-  bottom: 3px;
+  bottom: 0.1875rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
 }
 
 .heart__fill,
