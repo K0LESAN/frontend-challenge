@@ -1,6 +1,8 @@
 *,
 ::before,
 ::after {
+  font-family: var(--roboto), Arial, Helvetica, sans-serif;
+  font-weight: 400;
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;

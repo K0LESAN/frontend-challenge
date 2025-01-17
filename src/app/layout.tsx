@@ -1,5 +1,13 @@
 import type { Metadata } from 'next';
+import { Roboto } from 'next/font/google';
+import Header from '@/components/header';
 import './globals.css';
+
+const roboto = Roboto({
+  weight: ['400'],
+  variable: '--roboto',
+  preload: false
+});
 
 export const metadata: Metadata = {
   title: 'Кошачий пинтерест'
@@ -12,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ru'>
-      <body>{children}</body>
+      <body className={roboto.variable}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
