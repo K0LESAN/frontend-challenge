@@ -1,9 +1,12 @@
-import type { Result, Cat } from '@/shared/types';
+import type { Result, CatInfo } from '@/shared/types';
 import { Api } from '@/shared/constants';
 
 export const catService = {
-  async getByPage(page: number, limit: number = 15): Promise<Result<Cat[]>> {
-    const result: Result<Cat[]> = {
+  async getByPage(
+    page: number,
+    limit: number = 15
+  ): Promise<Result<CatInfo[]>> {
+    const result: Result<CatInfo[]> = {
       data: null,
       error: null
     };
@@ -17,7 +20,7 @@ export const catService = {
         throw new Error(`Failed request with status ${response.status}`);
       }
 
-      const data: Cat[] = await response.json();
+      const data: CatInfo[] = await response.json();
 
       result.data = data;
     } catch (error: unknown) {

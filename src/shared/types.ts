@@ -3,11 +3,11 @@ interface Result<T> {
   error: null | unknown;
 }
 
-interface Cat {
+interface CatInfo {
   _id: string;
   mimetype: string;
   size: number;
   tags: string[];
 }
 
-export type { Result, Cat };
+export type { Result, CatInfo };
