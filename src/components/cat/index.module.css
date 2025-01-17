@@ -13,11 +13,11 @@
   aspect-ratio: 1 / 1;
   transition-property: box-shadow;
   transition-duration: 250ms;
-  content: "";
+  content: '';
 }
 
 .block:active::before {
-  box-shadow: 0 0.375rem 0.3125rem 0 #0000003D;
+  box-shadow: 0 0.375rem 0.3125rem 0 #0000003d;
 }
 
 .cat {
@@ -35,6 +35,6 @@
 
 @media screen and ((hover: hover) or (pointer: fine)) {
   .block:hover::before {
-    box-shadow: 0 0.375rem 0.3125rem 0 #0000003D;
+    box-shadow: 0 0.375rem 0.3125rem 0 #0000003d;
   }
 }

@@ -7,11 +7,11 @@
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  --color: #F24E1E;
+  --color: #f24e1e;
 }
 
 .heart_clicked {
-  --color: #FF3A00;
+  --color: #ff3a00;
 }
 
 .heart__fill,
@@ -40,7 +40,7 @@
   *:hover > .heart > .heart__stroke {
     opacity: 1;
   }
-  
+
   .heart__fill,
   .heart__stroke {
     opacity: 0;
