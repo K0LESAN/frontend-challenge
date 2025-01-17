@@ -26,4 +26,8 @@
   object-fit: cover;
 }
 
-
+@media screen and (max-width: 70rem) {
+  .block::before {
+    width: 108%;
+  }
+}

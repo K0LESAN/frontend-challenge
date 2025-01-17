@@ -1,8 +1,45 @@
 .wrapper {
+  --count-cats: 5;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(var(--count-cats), 1fr);
   gap: 3rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+@media screen and (max-width: 81.25rem) {
+  .wrapper {
+    --count-cats: 4;
+  }
+}
+
+@media screen and (max-width: 70rem) {
+  .wrapper {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 62.5rem) {
+  .wrapper {
+    --count-cats: 3;
+  }
+}
+
+@media screen and (max-width: 50rem) {
+  .wrapper {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 31.25rem) {
+  .wrapper {
+    --count-cats: 2;
+  }
+}
+
+@media screen and (max-width: 25rem) {
+  .wrapper {
+    gap: 1rem;
+  }
 }
