@@ -7,7 +7,7 @@ export default async function NotFound() {
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Упс...</h2>
         <p className={styles.descrption}>
-          Такой страницы с котиками не найдено
+          Такой страницы с котиками не найдено.
         </p>
       </div>
     </Container>
