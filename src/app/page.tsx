@@ -10,7 +10,6 @@ import { CatInfo } from '@/shared/types';
 export default function RootPage() {
   const [cats, setCats] = useState<string[]>([]);
   const [page, setPage] = useState<number>(1);
-
   const callback: IntersectionObserverCallback = useCallback(
     ([loader]: IntersectionObserverEntry[]): void => {
       if (loader.isIntersecting) {
@@ -23,8 +22,12 @@ export default function RootPage() {
   );
 
   useEffect(() => {
+    const abortController = new AbortController();
     const fetchCats = async (): Promise<void> => {
-      const { data } = await catService.getByPage(page);
+      const { data } = await catService.getByPage({
+        page,
+        signal: abortController.signal
+      });
       const catsImage =
         data?.filter((cat: CatInfo): boolean => cat.mimetype !== 'image/gif') ||
         [];
@@ -38,6 +41,10 @@ export default function RootPage() {
     };
 
     fetchCats();
+
+    return () => {
+      abortController.abort('Clear useEffect');
+    };
   }, [page]);
 
   return (

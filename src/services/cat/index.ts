@@ -1,11 +1,18 @@
 import type { Result, CatInfo } from '@/shared/types';
 import { Api } from '@/shared/constants';
 
+interface Props {
+  page: number;
+  limit?: number;
+  signal?: AbortSignal | null;
+}
+
 export const catService = {
-  async getByPage(
-    page: number,
-    limit: number = 15
-  ): Promise<Result<CatInfo[]>> {
+  async getByPage({
+    page,
+    limit = 15,
+    signal = null
+  }: Props): Promise<Result<CatInfo[]>> {
     const result: Result<CatInfo[]> = {
       data: null,
       error: null
@@ -13,7 +20,10 @@ export const catService = {
 
     try {
       const response: Response = await fetch(
-        `${Api.baseURL}${Api.cats}?skip=${(page - 1) * limit}&limit=${limit}`
+        `${Api.baseURL}${Api.cats}?skip=${(page - 1) * limit}&limit=${limit}`,
+        {
+          signal
+        }
       );
 
       if (!response.ok) {
