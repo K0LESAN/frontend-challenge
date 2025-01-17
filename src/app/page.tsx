@@ -1,5 +1,6 @@
 import Cats from '@/components/cats';
 import Container from '@/components/container';
+import { InfiniteLoader } from '@/components/infinite-loader';
 import { catService } from '@/services/cat';
 
 export default async function RootPage() {
@@ -8,6 +9,7 @@ export default async function RootPage() {
   return (
     <Container>
       <Cats cats={cats ? cats.map(({ _id }) => _id) : []} />
+      <InfiniteLoader />
     </Container>
   );
 }
