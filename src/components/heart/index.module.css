@@ -21,9 +21,13 @@
   transition-duration: 250ms;
 }
 
-.heart__fill {
+.heart > .heart__fill {
   opacity: 0;
   fill: var(--color);
+}
+
+.heart_clicked > .heart__fill {
+  opacity: 1;
 }
 
 .heart__stroke {
@@ -41,8 +45,12 @@
     opacity: 1;
   }
 
-  .heart__fill,
-  .heart__stroke {
+  *:hover > .heart_clicked > .heart__fill {
+    opacity: 1 !important;
+  }
+
+  .heart > .heart__fill,
+  .heart > .heart__stroke {
     opacity: 0;
   }
 }
