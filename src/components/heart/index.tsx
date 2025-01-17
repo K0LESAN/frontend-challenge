@@ -1,5 +1,5 @@
-import HeartFill from '../icons/heart-fill';
-import HeartStroke from '../icons/heart-stroke';
+import HeartFill from '@/icons/heart-fill';
+import HeartStroke from '@/icons/heart-stroke';
 import SVG from '../svg';
 import styles from './index.module.css';
 
