@@ -10,12 +10,14 @@ export function CatsContextProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     if (localStorage && typeof localStorage === 'object') {
-      JSON.parse(localStorage.getItem('cats') || '[]');
+      setFavoriteCats(JSON.parse(localStorage.getItem('cats') || '[]'));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('cats', JSON.stringify(favoriteCats));
+    if (localStorage && typeof localStorage === 'object') {
+      localStorage.setItem('cats', JSON.stringify(favoriteCats));
+    }
   }, [favoriteCats]);
 
   return (
