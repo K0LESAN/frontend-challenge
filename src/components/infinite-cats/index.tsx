@@ -6,10 +6,12 @@ import Container from '@/components/container';
 import { InfiniteLoader } from '@/components/infinite-loader';
 import { catService } from '@/services/cat';
 import { CatInfo } from '@/shared/types';
+import Loader from '../loader';
 
 export default function InfiniteCats() {
   const [cats, setCats] = useState<string[]>([]);
   const [page, setPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const callback: IntersectionObserverCallback = useCallback(
     ([loader]: IntersectionObserverEntry[]): void => {
       if (loader.isIntersecting) {
@@ -38,6 +40,8 @@ export default function InfiniteCats() {
           return [...prev, ...newCats];
         });
       }
+
+      setIsLoading(false);
     };
 
     fetchCats();
@@ -46,6 +50,10 @@ export default function InfiniteCats() {
       abortController.abort('Clear useEffect');
     };
   }, [page]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <Container>
