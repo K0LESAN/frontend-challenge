@@ -31,10 +31,7 @@ export default function InfiniteCats() {
         page,
         signal: abortController.signal
       });
-      const catsImage =
-        data?.filter((cat: CatInfo): boolean => cat.mimetype !== 'image/gif') ||
-        [];
-      const newCats = catsImage.map((cat: CatInfo): string => cat._id);
+      const newCats = data?.map((cat: CatInfo): string => cat._id) || [];
 
       if (newCats.length) {
         setCats((prev: string[]): string[] => {
