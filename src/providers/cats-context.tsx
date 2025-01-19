@@ -6,13 +6,13 @@ import { createContext, PropsWithChildren, useEffect, useState } from 'react';
 export const CatsContext = createContext<FavoriteCatsContext | null>(null);
 
 export function CatsContextProvider({ children }: PropsWithChildren) {
-  const [favoriteCats, setFavoriteCats] = useState<string[]>(() => {
-    if (!localStorage && typeof localStorage !== 'object') {
-      return [];
-    }
+  const [favoriteCats, setFavoriteCats] = useState<string[]>([]);
 
-    return JSON.parse(localStorage.getItem('cats') || '[]');
-  });
+  useEffect(() => {
+    if (localStorage && typeof localStorage === 'object') {
+      JSON.parse(localStorage.getItem('cats') || '[]');
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('cats', JSON.stringify(favoriteCats));
