@@ -12,6 +12,7 @@ export default function InfiniteCats() {
   const [cats, setCats] = useState<string[]>([]);
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [hasNextCats, setHasNextCats] = useState<boolean>(false);
   const callback: IntersectionObserverCallback = useCallback(
     ([loader]: IntersectionObserverEntry[]): void => {
       if (loader.isIntersecting) {
@@ -42,6 +43,7 @@ export default function InfiniteCats() {
       }
 
       setIsLoading(false);
+      setHasNextCats(newCats.length > 0);
     };
 
     fetchCats();
@@ -58,7 +60,7 @@ export default function InfiniteCats() {
   return (
     <Container>
       <Cats cats={cats} />
-      {cats.length > 0 && <InfiniteLoader callback={callback} />}
+      {hasNextCats && <InfiniteLoader callback={callback} />}
     </Container>
   );
 }
